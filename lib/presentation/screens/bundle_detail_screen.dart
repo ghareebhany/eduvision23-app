@@ -246,7 +246,9 @@ class _BundleDetailView extends ConsumerWidget {
                                 : 'مجاني',
                         color: requiresCode
                             ? AppTheme.textMuted
-                            : AppTheme.success,
+                            : bundle.isEnrolled
+                                ? AppTheme.success
+                                : const Color(0xFF0F9D8C),
                       ),
                     ]),
                   ),
@@ -291,14 +293,14 @@ class _BundleDetailView extends ConsumerWidget {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           const Icon(Icons.lock_open_rounded,
-                              size: 16, color: AppTheme.success),
+                              size: 16, color: Color(0xFF0F9D8C)),
                           const SizedBox(width: 6),
                           const Text(
                             'محتوى مجاني لا يتطلب كود',
                             style: TextStyle(
                                 fontSize: 13,
                                 fontWeight: FontWeight.w600,
-                                color: AppTheme.success),
+                                color: Color(0xFF0F9D8C)),
                           ),
                         ],
                       ),
